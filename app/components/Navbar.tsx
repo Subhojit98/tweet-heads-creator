@@ -1,10 +1,10 @@
 "use client"
 import { toPng } from "html-to-image"
-import download from "downloadjs"
 import { useState } from "react"
 import { useToast } from "@/components/ui/use-toast"
 import { Toaster } from "@/components/ui/toaster"
 const Navbar = () => {
+    const download = require('downloadjs')
     const [count, setCount] = useState(1)
     const { toast } = useToast()
 
@@ -12,6 +12,7 @@ const Navbar = () => {
         const node = document.getElementById("banner-image")
         try {
             const dataUrl = await toPng(node as HTMLElement)
+            setCount(count + 1)
             download(dataUrl, `coustom-tweetheads-${count}.png`)
             toast({
                 description: "Downloaded Successfully",
@@ -28,7 +29,7 @@ const Navbar = () => {
             <nav className="w-full xl:w-[92%] 2xl:w-[96%] h-20 border-b border-black px-2 sm:px-5 bg-white absolute xl:right-0">
                 <div className="flex w-full justify-between items-center h-full">
 
-                    <h1 className="text-2xl font-bold dark:text-white text-[#8E05C2] ml-10 lg:ml-20">Ternd</h1>
+                    <h1 className="text-2xl font-bold dark:text-white text-[#8E05C2] ml-10 lg:ml-20">Ternds</h1>
 
                     <div className="flex gap-5 sm:gap-10 items-center ">
 

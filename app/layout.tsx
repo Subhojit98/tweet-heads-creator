@@ -5,7 +5,7 @@ import { GlobalConextProvider } from '@/app/context/AppContext';
 const raleway = Raleway({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Trend",
+  title: "Trends",
   description: "The trend creator",
 };
 

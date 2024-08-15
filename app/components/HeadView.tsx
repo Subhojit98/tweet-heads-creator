@@ -29,7 +29,7 @@ const HeadView = () => {
         const handleResize = () => setIsMobile(window.innerWidth < 768);
 
         window.addEventListener('resize', handleResize);
-        if (!isMobile) setIsClickedEdit(false);
+        // if (!isMobile) setIsClickedEdit(false);
         return () => window.removeEventListener('resize', handleResize);
     });
 
@@ -38,13 +38,16 @@ const HeadView = () => {
         if (isMobile) {
             setIsClickedEdit(!isClickedEdit);
         }
+        else {
+            window.innerWidth < 768 ? setIsClickedEdit(!isClickedEdit) : null;
+        }
     };
 
     return (
-        <div className="w-[85%] h-[60vh] m-auto xl:w-[60%] xl:h-[60vh] border border-black left-[8%] lg:left-[10%] xl:left-[34%] top-[20%] rounded-md bg-white md:absolute overflow-x-auto px-3 ">
+        <div className="w-[85%] h-[60vh] m-auto xl:w-[60%] xl:h-[60vh] border border-black left-[8%] lg:left-[10%] xl:left-[34%] top-[20%] overflow-x-auto rounded-md bg-white md:absolute px-3 ">
 
-            <div className="flex justify-center pb-10" id="banner-image">
-                <div className="w-[1100px] h-[333px] flex justify-center items-center overflow-x-auto m-auto mt-24 relative cursor-pointer md:cursor-auto" onClick={handleClick}>
+            <div className="flex justify-center pb-10 overflow-x-auto w-[1100px] h-full" id="banner-image">
+                <div className="w-full h-[333px] flex justify-center items-center overflow-x-auto m-auto mt-24 relative cursor-pointer md:cursor-auto" onClick={handleClick}>
                     <div className={`w-[70%] h-[70%] ${designMode == "light" ? "bg-white border border-gray-950" : "bg-gray-950"} rounded-lg p-10 z-50 duration-200 delay-150 ease-linear`} >
                         <div className="flex justify-between w-full">
                             <div className="flex gap-4">
