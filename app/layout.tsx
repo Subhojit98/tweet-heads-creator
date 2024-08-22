@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
 import "./globals.css";
-import { GlobalConextProvider } from '@/app/context/AppContext';
+import StoreProvider from "./providers/StoreProvider";
 const raleway = Raleway({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -17,9 +17,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={raleway.className}>
-        <GlobalConextProvider>
+        <StoreProvider>
           {children}
-        </GlobalConextProvider>
+        </StoreProvider>
       </body>
     </html>
   );

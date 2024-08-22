@@ -1,39 +1,27 @@
 "use client"
 import Image from "next/image"
 import verifiedIcon from '@/app/assets/svgs/social-media.png'
-import { useContext, useEffect, useState } from "react"
-import { GlobalContext } from "../context/AppContext"
-import { Context } from "vm"
 import SVGDisplay from "./SVGDisplay"
 import { Sheet, SheetContent } from "@/components/ui/sheet"
 import SideBarContent from "./SideBarContent"
+import { useSelector } from "react-redux"
+import { useEffect, useState } from "react"
+import { EditorState } from '@/app/interface/types'
+import { initialState } from "../features/editor/editorSlice"
 
 const HeadView = () => {
 
     const [isClickedEdit, setIsClickedEdit] = useState(false);
     const [isMobile, setIsMobile] = useState<null | Boolean>(null);
 
-    const {
-        name,
-        userName,
-        message,
-        profileImage,
-        backgroundColor,
-        pattern,
-        designMode,
-        isVerified, }
-        = useContext<Context>(GlobalContext);
-
-    // Update isMobile based on screen width
     useEffect(() => {
         const handleResize = () => setIsMobile(window.innerWidth < 768);
 
         window.addEventListener('resize', handleResize);
-        // if (!isMobile) setIsClickedEdit(false);
         return () => window.removeEventListener('resize', handleResize);
     });
 
-    // Determine the onClick handler based on the screen size
+    // ? Determine the onClick handler based on the screen size
     const handleClick = () => {
         if (isMobile) {
             setIsClickedEdit(!isClickedEdit);
@@ -42,6 +30,13 @@ const HeadView = () => {
             window.innerWidth < 768 ? setIsClickedEdit(!isClickedEdit) : null;
         }
     };
+
+    const content = useSelector((state: EditorState) => state?.content || initialState.content);
+
+
+    const { name, username, message, profileImage, backgroundColor, pattern, designMode, isVerified } = content;
+
+
 
     return (
         <div className="w-[85%] h-[60vh] m-auto xl:w-[60%] xl:h-[60vh] border border-black left-[8%] lg:left-[10%] xl:left-[34%] top-[20%] overflow-x-auto rounded-md bg-white md:absolute px-3 ">
@@ -54,7 +49,7 @@ const HeadView = () => {
                                 <Image src={profileImage} width={75} height={75} alt="" className="w-[4.7rem] h-[4.7rem] rounded-full object-cover object-center"></Image>
                                 <div>
                                     <h2 className={`text-2xl mt-1 inline-flex gap-2 ${designMode == "light" ? "text-black" : "text-white"}`}>{name}  {isVerified == "true" ? <span><Image src={verifiedIcon} alt="" /></span> : ""}</h2>
-                                    <p className={` mt-1 ${designMode == "light" ? "text-black" : "text-white"}`}>{userName}</p>
+                                    <p className={` mt-1 ${designMode == "light" ? "text-black" : "text-white"}`}>{username}</p>
                                 </div>
                             </div>
 
