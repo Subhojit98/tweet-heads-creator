@@ -9,6 +9,7 @@ const Navbar = () => {
     const { toast } = useToast()
 
     const handelDownload = async () => {
+
         const node = document.getElementById("banner-image")
         try {
             const dataUrl = await toPng(node as HTMLElement)

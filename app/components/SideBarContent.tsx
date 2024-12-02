@@ -69,6 +69,7 @@ const SideBarContent = () => {
         dispatch(setPattern(pattern))
     }
 
+
     return (
 
         <div>

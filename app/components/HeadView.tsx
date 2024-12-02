@@ -5,7 +5,7 @@ import SVGDisplay from "./SVGDisplay"
 import { Sheet, SheetContent } from "@/components/ui/sheet"
 import SideBarContent from "./SideBarContent"
 import { useSelector } from "react-redux"
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { EditorState } from '@/app/interface/types'
 import { initialState } from "../features/editor/editorSlice"
 
@@ -38,6 +38,9 @@ const HeadView = () => {
 
 
 
+    const memoisedPattern = useMemo(() => pattern, [pattern])
+    const memoisedBackground = useMemo(() => backgroundColor, [backgroundColor])
+
     return (
         <div className="w-[85%] h-[60vh] m-auto xl:w-[60%] xl:h-[60vh] border border-black left-[8%] lg:left-[10%] xl:left-[34%] top-[20%] overflow-x-auto rounded-md bg-white md:absolute px-3 ">
 
@@ -61,7 +64,7 @@ const HeadView = () => {
                         </div>
                     </div>
                     {
-                        pattern && <SVGDisplay id={pattern} color={backgroundColor} />
+                        pattern && <SVGDisplay id={memoisedPattern} color={memoisedBackground} />
                     }
                 </div>
             </div>

@@ -1,11 +1,12 @@
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, memo } from 'react';
 import Loader from '@/app/components/Loader'
 interface SVGDisplayProps {
     id: number;
     color: string;
 }
 
-const SVGDisplay: React.FC<SVGDisplayProps> = ({ id, color }) => {
+
+const SVGDisplay: React.FC<SVGDisplayProps> = memo(({ id, color }) => {
 
     const SVGComponent = lazy(() => import(`../components/patterns/Pattern_${id}`));
 
@@ -16,6 +17,8 @@ const SVGDisplay: React.FC<SVGDisplayProps> = ({ id, color }) => {
             </Suspense>
         </div>
     );
-};
 
+})
+
+SVGDisplay.displayName = "SVGDisplay";
 export default SVGDisplay;

@@ -50,12 +50,12 @@ const SideBarEditor = () => {
 
             <ul className="flex flex-col items-center mt-12 gap-16">
 
-                <li className="w-7"><Image src={textIcon} alt="" /></li>
-                <li className="w-7"><Image src={messageIcon} alt="" /></li>
-                <li className="w-7"><Image src={moveIcon} alt="" /></li>
-                <li className="w-7"><Image src={imageIcon} alt="" /></li>
-                <li className="w-7"><Image src={colorIcon} alt="" /></li>
-                <li className="w-7"><Image src={patternIcon} alt="" /></li>
+                <li className="w-7"><Image src={textIcon} alt="text Icon" /></li>
+                <li className="w-7"><Image src={messageIcon} alt="message Icon" /></li>
+                <li className="w-7"><Image src={moveIcon} alt="move Icon" /></li>
+                <li className="w-7"><Image src={imageIcon} alt="imageI con" /></li>
+                <li className="w-7"><Image src={colorIcon} alt="color Icon" /></li>
+                <li className="w-7"><Image src={patternIcon} alt="pattern Icon" /></li>
             </ul>
 
         </div>
