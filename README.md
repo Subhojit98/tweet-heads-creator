@@ -18,6 +18,12 @@ TRENDS is a modern web application that allows users to create custom posts simi
   - Shadcn UI
   - download-js
   - html-image package
+  
+## Working Demo
+![performance](https://raw.githubusercontent.com/Subhojit98/trends-maker/refs/heads/main/app/assets/iamges/Screenshot%20from%202024-12-06%2012-41-11.png)
+
+![gif](https://raw.githubusercontent.com/Subhojit98/trends-maker/refs/heads/main/app/assets/iamges/Screencastfrom2024-12-0612-34-02-ezgif.com-video-to-gif-converter.gif)
+
 
 ## Installation
 
